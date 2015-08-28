@@ -1,0 +1,26 @@
+.container {
+  width: 800px;
+}
+
+.top-menu {
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.home {
+  min-height: 600px;
+}
+
+.countries {
+  min-height: 600px;
+}
+
+.country {
+  min-height: 600px;
+}
+
+.images {
+  margin: 10px 0;
+  height: 350px
+}
+

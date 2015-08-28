@@ -1,3 +1,51 @@
-<div>
-  Country Details
+<div class="container">
+  <div class="country-name">
+    <h1> {{ countryDetailsCtrl.countryDetails.countryName}} </h1>
+  </div>
+  <div class="country-details">
+    <p>
+      <label for="population">Population of Country : </label>
+      <span id="population"> {{ countryDetailsCtrl.countryDetails.population | number:0 }}</span>
+    </p>
+    <p>
+      <label for="country-area">Area : </label>
+      <span id="country-area"> {{ countryDetailsCtrl.countryDetails.areaInSqKm | number:0}}</span>
+    </p>
+    <p>
+      <label for="capital">Capital : </label>
+      <span id="capital"> {{ countryDetailsCtrl.capitalDetails.name }}</span>
+    </p>
+    <p>
+      <label for="capital-population">Population of capital : </label>
+      <span id="capital-population"> {{ countryDetailsCtrl.capitalDetails.population | number:0}}</span>
+    </p>
+    <p>
+      <label for="neighbours"> {{ countryDetailsCtrl.neighboursList.length }} neighbours : </label>
+      <a id="neighbour"  href="#/countries/{{ neighbour.countryCode  }}" ng-repeat = "neighbour in countryDetailsCtrl.neighboursList">
+       {{ neighbour.name }}
+       </a>
+    </p>
+  </div>
+  <div class="row images">
+    <div class="col-sm-6 country-map">
+      <img
+        ng-src="http://www.geonames.org/img/country/250/{{ countryDetailsCtrl.countryCode | uppercase }}.png" />
+    </div>
+    <div class="col-sm-6 country-flag">
+      <img
+        ng-src="http://www.geonames.org/flags/x/{{ countryDetailsCtrl.countryCode | lowercase }}.gif" />
+    </div>
+  </div>
+  <div class="col-md-12">
+    <button
+      class="btn btn-default btn-primary"
+      ng-click="countryDetailsCtrl.gotoHome()">
+      Home
+    </button>
+    <button
+      class="btn"
+      ng-click="countryDetailsCtrl.gotoCountries()">
+      Browse Countries
+    </button>
+  </div>
 </div>

@@ -12,7 +12,7 @@
         controller: 'countryListController',
         controllerAs: 'countriesCtrl'
       })
-      .when('/countries/:country',{
+      .when('/countries/:countryCode',{
         templateUrl: 'countryDetails/countryDetails.tpl.html',
         controller: 'countryDetailsController',
         controllerAs: 'countryDetailsCtrl'

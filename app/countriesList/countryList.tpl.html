@@ -3,7 +3,7 @@
   width: 97%;
 }
 .table-fixed tbody {
-  height: 230px;
+  height: 500px;
   overflow-y: auto;
   width: 100%;
 }
@@ -14,10 +14,14 @@
   float: left;
   border-bottom-width: 0;
 }
+
+tbody> tr {
+  cursor: pointer;
+}
 </style>
 
-<div class="table-responsive ">
-  <table class="table table-hover table-fixed">
+<div class="table-responsive countries">
+  <table class="table table-striped table-hover table-fixed">
     <thead>
     <tr>
       <th class="col-xs-3">Name</th>
@@ -29,18 +33,19 @@
     </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="country in countriesCtrl.countries" ng-click="countriesCtrl.gotoCountryDetails()">
-        <td class="col-xs-3">{{ country.countryName }}</td>
+      <tr ng-repeat="country in countriesCtrl.countries | orderBy : 'continentName'"
+        ng-click="countriesCtrl.gotoCountryDetails(country.countryCode)">
+        <td class="col-xs-3">{{ country.countryName | limitTo: 10 }}</td>
         <td class="col-xs-1">{{ country.countryCode }}</td>
-        <td class="col-xs-2">{{ country.capital }}</td>
-        <td class="col-xs-2">{{ country.areaInSqKm }}</td>
-        <td class="col-xs-2">{{ country.population }}</td>
-        <td class="col-xs-2">{{ country.continentName }}</td>
+        <td class="col-xs-2">{{ country.capital | limitTo: 5 }}</td>
+        <td class="col-xs-2">{{ country.areaInSqKm | number:0 }}</td>
+        <td class="col-xs-2">{{ country.population | number:0 }}</td>
+        <td class="col-xs-2">{{ country.continentName  }}</td>
       </tr>
     </tbody>
   </table>
 
 </div>
 <div class="col-md-12">
-  <button ng-click="countriesCtrl.gotoHome()">Home</button>
+  <button class="btn btn-default btn-primary" ng-click="countriesCtrl.gotoHome()">Home</button>
 </div>

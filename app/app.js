@@ -9,7 +9,7 @@
   function appController($location) {
     var vm = this;
 
-    vm.gotocountries = function(){
+    vm.gotoCountries = function(){
       $location.path('/countries');
     };
   }

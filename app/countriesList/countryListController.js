@@ -23,8 +23,9 @@
       $location.path('/');
     };
 
-    vm.gotoCountryDetails = function() {
-      $location.path('/');
+    vm.gotoCountryDetails = function(countryCode) {
+      var path = '/countries/' + countryCode;
+      $location.path(path);
     };
 
   }
