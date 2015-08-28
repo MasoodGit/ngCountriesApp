@@ -1,3 +1,46 @@
-<div>
-  List of Countries
+<style type="text/css">
+.table-fixed thead {
+  width: 97%;
+}
+.table-fixed tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+</style>
+
+<div class="table-responsive ">
+  <table class="table table-hover table-fixed">
+    <thead>
+    <tr>
+      <th class="col-xs-3">Name</th>
+      <th class="col-xs-1">Country Code</th>
+      <th class="col-xs-2">Capital</th>
+      <th class="col-xs-2">Area in km2</th>
+      <th class="col-xs-2">Population</th>
+      <th class="col-xs-2">Continent</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="country in countriesCtrl.countries" ng-click="countriesCtrl.gotoCountryDetails()">
+        <td class="col-xs-3">{{ country.countryName }}</td>
+        <td class="col-xs-1">{{ country.countryCode }}</td>
+        <td class="col-xs-2">{{ country.capital }}</td>
+        <td class="col-xs-2">{{ country.areaInSqKm }}</td>
+        <td class="col-xs-2">{{ country.population }}</td>
+        <td class="col-xs-2">{{ country.continentName }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<div class="col-md-12">
+  <button ng-click="countriesCtrl.gotoHome()">Home</button>
 </div>

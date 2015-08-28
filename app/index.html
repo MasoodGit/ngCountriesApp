@@ -3,9 +3,9 @@
 <head>
   <title>Countries and Capitals</title>
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="app.cs">
+  <link rel="stylesheet" type="text/css" href="app.css">
 </head>
-<body>
+<body ng-controller="appController as appCtrl">
 <div class="container">
   <header>
     <h1>Countries and Capitals</h1>
@@ -23,6 +23,13 @@
 <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
 
 <!-- app modules -->
-<script type="text/javascript" src="app.js"></script>
+<script src="app-config.js"></script>
+<script src="app.js"></script>
+<!-- controllers -->
+<script src="countriesList/countryListController.js"></script>
+<script src="countryDetails/countryDetailsController.js"></script>
+
+<!-- services -->
+<script src="services/geoNamesService.js"></script>
 </body>
 </html>
