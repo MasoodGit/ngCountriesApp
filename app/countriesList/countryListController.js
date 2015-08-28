@@ -11,11 +11,12 @@
     vm.countries = [];
 
     init();
-
+    console.log('after init func');
     function init () {
-        return geoNamesService.getCountries().then(function(data) {
+       geoNamesService.getCountries().then(function(data) {
           vm.countries = data.geonames;
-          return vm.countries;
+          console.log('done loading....');
+          //return vm.countries;
         });
     }
 

@@ -4,15 +4,18 @@
     .module('ngCountryApp')
     .controller('countryDetailsController',countryDetailsController);
 
-  countryDetailsController.$inject = ['$routeParams','$location','geoNamesService'];
+  countryDetailsController.$inject = ['$q','$routeParams','$location','geoNamesService'];
 
-  function countryDetailsController($routeParams,$location,geoNamesService) {
+  function countryDetailsController($q,$routeParams,$location,geoNamesService) {
   /*jshint validthis: true */
     var vm = this;
     vm.countryCode = $routeParams.countryCode;
     vm.countryDetails = {};
     vm.capitalDetails = {};
     vm.neighboursList = {};
+    // init().then(function() {
+    //   console.log('hello resolved');
+    // });
     init();
 
     function init() {
@@ -20,6 +23,18 @@
           .then(getCapitalDetails)
           .then(getNeighbours)
           .then(updateNeighhours);
+          
+        // var promise = geoNamesService.getCountryDetails(vm.countryCode);
+        // var capitalDetails = geoNamesService.getCapitalDetails(vm.countryCode,vm.countryDetails.capital);
+        // var neighbours = geoNamesService.getNeighbours(vm.countryDetails.geonameId);
+        // var update = updateNeighhours();
+        // $q.all([promise,capitalDetails,neighbours,update]).then(function(responses){
+        //   console.log('response-0' , responses[0]);
+        //   console.log('response-1' , responses[1]);
+        //   console.log('response-2' , responses[2]);
+        //   console.log('response-3' , responses[3]);
+
+        // });;
     }
 
     function getCapitalDetails(data) {
